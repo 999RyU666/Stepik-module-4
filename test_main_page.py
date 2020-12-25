@@ -1,6 +1,6 @@
 from pages.main_page import MainPage
 from pages.login_page import LoginPage
-from pages.locators import BasePageLocators
+from pages.locators import BasketPageLocators
 import pytest
 
 @pytest.mark.login_guest
@@ -24,7 +24,7 @@ def test_guest_cant_see_product_in_basket_opened_from_main_page(browser):
     page = MainPage(browser, link)
     page.open()
     page.open_basket()
-    assert page.is_not_element_present(*BasePageLocators.BASKET_ITEMS), "Basket is not empty"
-    assert page.is_element_present(*BasePageLocators.MESSAGE_EMPTY_BASKET), "There is no empty basket message"
+    page.basket_is_empty
+    page.should_be_message_basket_is_empty
     
     
